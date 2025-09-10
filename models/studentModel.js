@@ -26,8 +26,7 @@ const studentSchema = new mongoose.Schema({
   },
   age: {
     type : Number,
-    required: true,
-    trim: true
+    required: true
   },
 }, {
   timestamp: true
