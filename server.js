@@ -5,7 +5,7 @@ const express = require("express")
 
 
 const app = express();
-// const mongoose = require('mongoose')
+const mongoose = require('mongoose')
 
 
 
@@ -14,8 +14,8 @@ const app = express();
 // app.use(router) 
 
 
-// mongoose.connect(process.env.db).then
-//     (() => {
+mongoose.connect(process.env.db).then
+    (() => {
 
 //         console.log("db connection is established");
         app.listen(PORT, () => {
@@ -24,7 +24,7 @@ const app = express();
         })
 
 
-    // }).catch((err) => {
-    //     console.log("unable to connect to db to " + err);
+    }).catch((err) => {
+        console.log("unable to connect to db to " + err);
 
-    // })
+    })
