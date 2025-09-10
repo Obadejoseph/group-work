@@ -22,8 +22,4 @@ mongoose.connect(db).then
 
     }).catch((err) => {
         console.log("unable to connect to db to " + err);
-    }).catch((err) => {
-        console.log("unable to connect to db to " + err);
-
-    })
     })
