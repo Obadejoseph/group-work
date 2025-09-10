@@ -19,5 +19,3 @@ mongoose
   .catch((error) => {
     console.log("Unable to connect to Database: " + error.message);
   });
-
-  
