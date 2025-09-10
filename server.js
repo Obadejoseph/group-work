@@ -1,30 +1,23 @@
-require('dotenv').config();
+require("dotenv").config();
 
 const PORT = process.env.PORT || 2121;
-const express = require("express")
-const mongoose = require('mongoose')
+const express = require("express");
+const mongoose = require("mongoose");
 
 const app = express();
-// const mongoose = require('mongoose')
+app.use(express.json());
 
+// app.use(router)
 
-
-// app.use(express.json());
-
-// app.use(router) 
-
-
-// mongoose.connect(process.env.db).then
-//     (() => {
-
-//         console.log("db connection is established");
-        app.listen(PORT, () => {
-            console.log(`server is runing on port${PORT}`);
-
-        })
-
-
-    // }).catch((err) => {
-    //     console.log("unable to connect to db to " + err);
-
-    // })
+const db = process.env.db;
+mongoose
+  .connect(db)
+  .then(() => {
+    console.log("Connection to DataBase has been established successfully");
+    app.listen(PORT, () => {
+      console.log(`server is runing on Port: ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.log("unable to connect to db to " + err);
+  });
